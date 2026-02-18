@@ -1,11 +1,13 @@
-
 "use client";
 
 import { Section } from "./ui/Section";
-import { skillsData } from "@/lib/data";
 import { motion } from "framer-motion";
 
-export function Skills() {
+interface SkillsProps {
+    skillsData: { category: string; items: string[] }[];
+}
+
+export function Skills({ skillsData }: SkillsProps) {
     return (
         <Section id="skills" className="bg-slate-900">
             <div className="text-center mb-16">

@@ -1,12 +1,15 @@
-
 "use client";
 
 import { Section } from "./ui/Section";
-import { experienceData } from "@/lib/data";
 import { motion } from "framer-motion";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { Calendar } from "lucide-react";
+import { Experience } from "@prisma/client";
 
-export function ExperienceTimeline() {
+interface ExperienceTimelineProps {
+    experiences: (Omit<Experience, "skills"> & { skills: string[] })[];
+}
+
+export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
     return (
         <Section id="experience" className="bg-slate-900">
             <div className="text-center mb-16">
@@ -20,9 +23,9 @@ export function ExperienceTimeline() {
                 {/* Vertical Line */}
                 <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-slate-800 transform md:-translate-x-1/2" />
 
-                {experienceData.map((exp, index) => (
+                {experiences.map((exp, index) => (
                     <motion.div
-                        key={index}
+                        key={exp.id}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
@@ -38,7 +41,7 @@ export function ExperienceTimeline() {
                             <div className="flex flex-col gap-2 mb-4">
                                 <span className="inline-flex items-center gap-2 text-indigo-400 text-sm font-medium">
                                     <Calendar size={14} />
-                                    {exp.date}
+                                    {exp.startDate} - {exp.endDate || "Present"}
                                 </span>
                                 <h3 className="text-xl font-bold text-slate-100">{exp.role}</h3>
                                 <div className="text-slate-400 font-medium">
@@ -55,15 +58,17 @@ export function ExperienceTimeline() {
                                 {exp.description}
                             </p>
 
-                            <div className="border-t border-slate-700/50 pt-4 mt-4">
-                                <p className="text-sm text-slate-400">
-                                    <strong className="text-indigo-400">Impact: </strong>
-                                    {exp.impact}
-                                </p>
-                            </div>
+                            {exp.impact && (
+                                <div className="border-t border-slate-700/50 pt-4 mt-4">
+                                    <p className="text-sm text-slate-400">
+                                        <strong className="text-indigo-400">Impact: </strong>
+                                        {exp.impact}
+                                    </p>
+                                </div>
+                            )}
 
                             <div className="flex flex-wrap gap-2 mt-4">
-                                {exp.skills.map(skill => (
+                                {exp.skills.map((skill: string) => (
                                     <span key={skill} className="px-2 py-1 bg-slate-700/50 text-xs text-slate-300 rounded-md border border-slate-600/50">
                                         {skill}
                                     </span>
