@@ -2,6 +2,7 @@
 import { getEducations } from "@/lib/actions";
 import { createEducation, deleteEducation } from "@/lib/admin-actions";
 import { Trash2, Plus, GraduationCap } from "lucide-react";
+import { Education } from "@prisma/client";
 
 export const revalidate = 0;
 
@@ -33,7 +34,7 @@ export default async function AdminEducationPage() {
             {/* List Existing Education */}
             <div className="space-y-4">
                 <h3 className="text-lg font-medium text-slate-200">Existing Records</h3>
-                {educations.map((edu) => (
+                {educations.map((edu: Education) => (
                     <div key={edu.id} className="bg-slate-800/50 p-4 rounded-xl border border-slate-700 flex justify-between items-start">
                         <div>
                             <h4 className="font-bold text-slate-100">{edu.degree}</h4>

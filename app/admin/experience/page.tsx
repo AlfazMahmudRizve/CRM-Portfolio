@@ -2,6 +2,7 @@
 import { getExperiences } from "@/lib/actions";
 import { createExperience, deleteExperience } from "@/lib/admin-actions";
 import { Trash2, Plus, Calendar } from "lucide-react";
+import { Experience } from "@prisma/client";
 
 export const revalidate = 0;
 
@@ -41,7 +42,7 @@ export default async function AdminExperiencePage() {
             {/* List Existing Experience */}
             <div className="space-y-4">
                 <h3 className="text-lg font-medium text-slate-200">Existing Roles</h3>
-                {experiences.map((exp) => (
+                {experiences.map((exp: Omit<Experience, "skills"> & { skills: string[] }) => (
                     <div key={exp.id} className="bg-slate-800/50 p-4 rounded-xl border border-slate-700 flex justify-between items-start">
                         <div>
                             <h4 className="font-bold text-slate-100">{exp.role}</h4>
