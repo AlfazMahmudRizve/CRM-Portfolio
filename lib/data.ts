@@ -1,18 +1,6 @@
 
-import {
-    Briefcase,
-    GraduationCap,
-    MapPin,
-    Mail,
-    Linkedin,
-    Phone,
-    Monitor,
-    Users,
-    MessageSquare,
-    ShieldCHECK
-} from "lucide-react";
-
 export const siteConfig = {
+
     name: "Abu Zubayer",
     title: "Customer Service Specialist & English Literature Scholar",
     description: "Elevating Customer Experience through Empathy & Precision.",
