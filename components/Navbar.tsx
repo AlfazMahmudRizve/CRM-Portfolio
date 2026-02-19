@@ -31,9 +31,9 @@ export function Navbar() {
     return (
         <nav
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
                 isScrolled
-                    ? "bg-slate-900/80 backdrop-blur-md border-b border-white/10 py-4 shadow-lg"
+                    ? "bg-slate-950/70 backdrop-blur-xl border-b border-white/5 py-4 shadow-2xl shadow-black/5"
                     : "bg-transparent py-6"
             )}
         >

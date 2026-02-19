@@ -23,4 +23,21 @@ body {
   height: 100%;
   background-color: var(--color-background);
   color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.animate-drop {
+  animation: drop 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
