@@ -40,9 +40,9 @@ export function Navbar() {
             <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
                 <Link
                     href="/"
-                    className="hover:opacity-80 transition-opacity"
+                    className="text-2xl font-serif font-bold tracking-tight hover:text-indigo-400 transition-colors"
                 >
-                    <img src="/logo.png" alt="Abu Zubayer Logo" className="h-10 w-auto" />
+                    Abu Zubayer
                 </Link>
 
                 {/* Desktop Menu */}
