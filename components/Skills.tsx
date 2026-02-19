@@ -4,12 +4,12 @@ import { Section } from "./ui/Section";
 import { motion } from "framer-motion";
 
 interface SkillsProps {
-    skillsData: { category: string; items: string[] }[];
+    skillsData: { category: string; items: { id: string; name: string }[] }[];
 }
 
 export function Skills({ skillsData }: SkillsProps) {
     return (
-        <Section id="skills" className="bg-slate-900">
+        <Section id="skills" className="bg-slate-950">
             <div className="text-center mb-16">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-100 mb-4">
                     Core Competencies
@@ -26,7 +26,7 @@ export function Skills({ skillsData }: SkillsProps) {
                         <div className="flex flex-wrap justify-center gap-3">
                             {category.items.map((skill, index) => (
                                 <motion.div
-                                    key={skill}
+                                    key={skill.id}
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
@@ -34,7 +34,7 @@ export function Skills({ skillsData }: SkillsProps) {
                                     whileHover={{ scale: 1.05, y: -2 }}
                                     className="px-6 py-3 bg-slate-800 border border-slate-700 rounded-xl text-slate-200 font-medium hover:border-indigo-500 hover:bg-slate-800/80 hover:shadow-lg hover:shadow-indigo-500/10 transition-all cursor-default"
                                 >
-                                    {skill}
+                                    {skill.name}
                                 </motion.div>
                             ))}
                         </div>

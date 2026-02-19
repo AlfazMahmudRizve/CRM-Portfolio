@@ -41,9 +41,9 @@ export async function getSkills() {
         if (!acc[skill.category]) {
             acc[skill.category] = [];
         }
-        acc[skill.category].push(skill.name);
+        acc[skill.category].push({ id: skill.id, name: skill.name });
         return acc;
-    }, {} as Record<string, string[]>);
+    }, {} as Record<string, { id: string; name: string }[]>);
 
     return Object.entries(grouped).map(([category, items]) => ({
         category,
