@@ -58,7 +58,9 @@ export function Navbar() {
                         </Link>
                     ))}
                     <Link
-                        href="/resume.pdf"
+                        href="https://drive.google.com/file/d/1ia4ZtuvJvYZISvq5If1XSXG7BcDnPNEK/view?usp=drive_link"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="px-4 py-2 text-sm font-medium bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition-colors shadow-lg shadow-indigo-500/20"
                     >
                         Resume
@@ -95,7 +97,9 @@ export function Navbar() {
                                 </Link>
                             ))}
                             <Link
-                                href="/resume.pdf"
+                                href="https://drive.google.com/file/d/1ia4ZtuvJvYZISvq5If1XSXG7BcDnPNEK/view?usp=drive_link"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="text-base font-medium text-indigo-400 block py-2"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
